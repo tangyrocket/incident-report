@@ -2,22 +2,20 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+use App\Http\Controllers\PageController;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(PageController::class)->group(function(){
+    Route::get('/', 'welcome');
+    Route::get('/login','login');
 });
 
-Route::get('dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('reportes', function () {
-    return 'LISTADO DE REPORTES';
-})->middleware(['auth', 'verified'])->name('reportes');
-
-Route::get('reportes/{slug}', function ($slug) {
-    return $slug;
-})->middleware(['auth', 'verified'])->name('incidente');
+Route::controller(PageController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', 'dashboard')->name('dashboard');
+    Route::get('reportes', 'reports')->name('reportes');
+    Route::get('reportes/{incident:slug}', 'incident')->name('incident');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -25,4 +23,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

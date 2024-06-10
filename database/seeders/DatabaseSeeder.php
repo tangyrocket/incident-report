@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Incidents;
+use App\Models\Companies;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -19,5 +21,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        Companies::factory(2)->create();
+        Incidents::factory(50)->create();
     }
 }
