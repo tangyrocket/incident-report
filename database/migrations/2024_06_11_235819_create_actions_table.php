@@ -11,10 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+
+        Schema::create('actions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
+        });
+        Schema::create('incident_actions', function (Blueprint $table) {
+            $table->id();
+            $table->string('state');
+            $table->foreignId('action_id')->nullable();
+            $table->foreignId('incident_id')->nullable();
+            $table->timestamps();
+
         });
     }
 
@@ -23,6 +32,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('actions');
+        Schema::dropIfExists('incident_actions');
     }
 };

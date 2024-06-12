@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use App\Http\Controllers\IncidentsController;
 use App\Http\Controllers\PageController;
 
 
@@ -16,6 +17,8 @@ Route::controller(PageController::class)->middleware(['auth', 'verified'])->grou
     Route::get('reportes', 'reports')->name('reportes');
     Route::get('reportes/{incident:slug}', 'incident')->name('incident');
 });
+
+Route::resource('incidents', IncidentsController::class)->except(['show'],['delete']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

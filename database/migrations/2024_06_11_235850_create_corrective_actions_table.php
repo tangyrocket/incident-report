@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('incidents', function (Blueprint $table) {
+        Schema::create('corrective_actions', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
             $table->string('description');
+            $table->string('lifting_period');
+           
+            $table->foreignId('incident_id')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('incidents');
+        Schema::dropIfExists('corrective_actions');
     }
 };

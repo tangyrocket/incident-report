@@ -24,6 +24,7 @@
             {{$incidents -> links()}}
         </div>
 
+        
 
     </div>
 </x-app-layout>

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Companies>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Corrective_action>
  */
-class CompaniesFactory extends Factory
+class Corrective_actionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,11 @@ class CompaniesFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(),
-            'type' => $this->faker->randomElement(['electrocentro', 'contratista']),
+
+            'description' => $this->faker->text(200),
+            'lifting_period' => rand(1,3),
+            'incident_id' =>rand(1,50),
+
         ];
     }
 }
