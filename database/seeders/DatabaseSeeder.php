@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         Cause::factory(40)->create();
         Incident_cause::factory(80)->create();
 
-        Action::factory(2)->create();
-        Incident_action::factory(100);
+        Action::factory(40)->create();
+        Incident_action::factory(100)->create();
     }
 }

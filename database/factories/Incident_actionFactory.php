@@ -17,9 +17,8 @@ class Incident_actionFactory extends Factory
     public function definition(): array
     {
         return [
-
-            'state' => rand('si','no'),
-            'action_id' => rand(1,2),
+            'state' => $this->faker->boolean ? 'si' : 'no',
+            'action_id' => rand(1,40),
             'incident_id' => rand(1,50),
         ];
     }

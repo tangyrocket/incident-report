@@ -23,10 +23,10 @@ return new class extends Migration
             $table->longText('description');
             $table->string('activity');
             $table->string('location');
-            $table->foreignId('reported_user')->constrained('users');
-            $table->foreignId('registered_user')->constrained('users');
             $table->date('lifting_period')->nullable();
             $table->timestamps();
+            $table->foreignId('reported_user')->constrained('users');
+            $table->foreignId('registered_user')->constrained('users');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->foreignId('bussiness_unit_id')->constrained('bussiness_units');
@@ -34,7 +34,7 @@ return new class extends Migration
             $table->foreignId('area_id');
             $table->foreignId('event_id');
             $table->foreignId('incident_state_id')->constrained('incident_states');
-           
+
         });
     }
 
