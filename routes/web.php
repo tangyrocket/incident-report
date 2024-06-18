@@ -7,9 +7,9 @@ use App\Http\Controllers\IncidentsController;
 use App\Http\Controllers\PageController;
 
 
-Route::controller(PageController::class)->group(function(){
+Route::controller(PageController::class)->group(function () {
     Route::get('/', 'welcome');
-    Route::get('/login','login');
+    Route::get('/login', 'login');
 });
 
 Route::controller(PageController::class)->middleware(['auth', 'verified'])->group(function () {
@@ -18,12 +18,19 @@ Route::controller(PageController::class)->middleware(['auth', 'verified'])->grou
     Route::get('reportes/{incident:slug}', 'incident')->name('incident');
 });
 
-Route::resource('incidents', IncidentsController::class)->except(['show'],['delete']);
+
+Route::put('incident/{incident}', [IncidentsController::class, 'update'])->name('incident.update');
+Route::get('incident/{incident}', [IncidentsController::class, 'show'])->name('incident.show');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
 
 require __DIR__ . '/auth.php';

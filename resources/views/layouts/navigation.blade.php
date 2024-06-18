@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
 
                 {{ $header }}
-           
+
                 </div>
 
 

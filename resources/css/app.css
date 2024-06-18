@@ -23,4 +23,15 @@
     background-color: rgb(233, 233, 233);
 }
 
+.card-pending{
+    border-color: yellow;
+}
+.card-approved{
+    border-color: green;
+}
+
+.card-new{
+    border-color: red;
+}
+
 

@@ -37,13 +37,14 @@ class DatabaseSeeder extends Seeder
         Area::factory(4)->create();
         Event::factory(20)->create();
         Incident_state::factory(3)->create();
+        Corrective_action::factory(50)->create();
 
         Incidents::factory(50)->create();
 
         Type_image::factory(2)->create();
         Image::factory(50)->create();
 
-        Corrective_action::factory(20)->create();
+
 
         Cause::factory(40)->create();
         Incident_cause::factory(80)->create();

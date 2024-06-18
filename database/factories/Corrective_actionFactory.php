@@ -19,8 +19,8 @@ class Corrective_actionFactory extends Factory
         return [
 
             'description' => $this->faker->text(200),
-            'lifting_period' => rand(1,3),
-            'incident_id' =>rand(1,50),
+           
+            'incident_id' => rand(1, 50),
 
         ];
     }

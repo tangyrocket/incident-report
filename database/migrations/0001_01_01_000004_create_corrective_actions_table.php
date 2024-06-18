@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('corrective_actions', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->string('lifting_period');
-           
             $table->foreignId('incident_id')->nullable();
             $table->timestamps();
         });

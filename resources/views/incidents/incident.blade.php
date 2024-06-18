@@ -21,8 +21,34 @@
             <h2>{{$incident -> electrical_service -> name}}</h2>
             <h2>*{{$incident -> area -> name}}</h2>
             <h2>{{$incident -> event-> code}}</h2>
-            <h2>{{$incident -> incident_state -> name}}</h2>
+            <h2>*{{$incident -> incident_state -> name}}</h2>
+
+            <h3>Corrective Actions</h3>
+            <ul>
+                @foreach ($incident->corrective_action as $action)
+                <li>{{ $action->id }}</li>
+                @endforeach
+            </ul>
         </div>
     </div>
 
+
+    @if ($incident->incident_state->id == 1)
+    @include('incidents.partials.incident-modal-lifting')
+
+    @elseif ($incident->incident_state->id == 2)
+    @include('incidents.partials.incident-pending')
+
+    @elseif ($incident->incident_state->id == 3)
+    @include('incidents.partials.incident-to-approve')
+
+    @elseif ($incident->incident_state->id == 4)
+    @include('incidents.partials.incident-resolved')
+
+    @else
+    @include('incidents.partials.incident-lifting-declined')
+
+    @endif
+
+    
 </x-app-layout>

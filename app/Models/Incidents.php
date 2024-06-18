@@ -24,6 +24,7 @@ class Incidents extends Model
         'area_id',
         'event_id',
         'incident_state_id',
+        'lifting_period'
     ];
     public function company(){
         return $this->belongsTo(Companies::class);
@@ -54,7 +55,10 @@ class Incidents extends Model
     public function electrical_service(){
         return $this -> belongsTo(Electrical_service::class, 'electrical_service_id');
     }
+    public function corrective_action(){
+        return $this->hasMany(Corrective_action::class, 'incident_id');
 
+    }
 
 
 }

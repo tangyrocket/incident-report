@@ -19,7 +19,7 @@ class PageController extends Controller
     public function reports()
     {
         //$incidents = Incidents::get();
-        $incidents = Incidents::latest()->paginate();
+        $incidents = Incidents::latest()->paginate(10);
 
         return view('home.report-list', ['incidents' => $incidents]);
     }
@@ -27,4 +27,10 @@ class PageController extends Controller
     {
         return view('incidents.incident', ['incident' => $incident]);
     }
+
+    public function incident_correction(Incidents $incident)
+    {
+        return view('incidents.incident-correction', ['incident' => $incident]);
+    }
+
 }
