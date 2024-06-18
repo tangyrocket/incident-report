@@ -9,7 +9,6 @@ use App\Http\Controllers\PageController;
 
 Route::controller(PageController::class)->group(function () {
     Route::get('/', 'welcome');
-    Route::get('/login', 'login');
 });
 
 Route::controller(PageController::class)->middleware(['auth', 'verified'])->group(function () {
