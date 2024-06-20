@@ -30,7 +30,7 @@ class IncidentsFactory extends Factory
             'electrical_service_id' => rand(1,2),
             'area_id' => rand(1,4),
             'event_id' => rand(1,20),
-            'incident_state_id' => rand(1,3),
+            'incident_state_id' => rand(1,5),
             'lifting_period' => $this->faker->dateTime(),
 
 

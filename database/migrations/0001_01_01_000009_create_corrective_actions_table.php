@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('corrective_actions', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->foreignId('incident_id')->nullable();
             $table->timestamps();
+            $table->foreignId('incident_id')->nullable()->constrained('incidents');
+
         });
     }
 

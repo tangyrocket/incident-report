@@ -31,8 +31,8 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies');
             $table->foreignId('bussiness_unit_id')->constrained('bussiness_units');
             $table->foreignId('electrical_service_id')->constrained('electrical_services');
-            $table->foreignId('area_id');
-            $table->foreignId('event_id');
+            $table->foreignId('area_id')->constrained('areas');
+            $table->foreignId('event_id')->constrained('events');;
             $table->foreignId('incident_state_id')->constrained('incident_states');
 
         });

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('person_id')->nullable();
+            $table->foreignId('person_id')->nullable()->constrained('people');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
         });

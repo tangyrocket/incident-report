@@ -15,13 +15,13 @@ return new class extends Migration
         Schema::create('actions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('state');
             $table->timestamps();
         });
         Schema::create('incident_actions', function (Blueprint $table) {
             $table->id();
-            $table->string('state');
-            $table->foreignId('action_id')->nullable();
-            $table->foreignId('incident_id')->nullable();
+            $table->foreignId('action_id')->nullable()->constrained('actions');
+            $table->foreignId('incident_id')->nullable()->constrained('incidents');
             $table->timestamps();
 
         });

@@ -6,7 +6,11 @@ use App\Models\Incidents;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\V1\IncidentResource;
+use App\Models\Corrective_action;
+use App\Models\Incident_action;
+use App\Models\Incident_cause;
 use Illuminate\Support\Str;
+
 class IncidentController extends Controller
 {
     /**
@@ -32,6 +36,32 @@ class IncidentController extends Controller
         // Crear el incidente con los datos modificados
         $incident = Incidents::create($data);
 
+
+
+        if (isset($data['cause_id']) && is_array($data['cause_id'])) {
+            foreach ($data['cause_id'] as $causeId) {
+                $incident_causes = [
+                    'incident_id' => $incident->id,  // Usamos la PK del incidente como FK en la tabla relacionada
+                    'cause_id' => $causeId,  // Campo relacionado
+                ];
+
+                // Crear el registro en la tabla relacionada
+                Incident_cause::create($incident_causes);
+            }
+        }
+
+        if (isset($data['action_id']) && is_array($data['action_id'])) {
+            foreach ($data['action_id'] as $actionId) {
+                $incident_action = [
+                    'incident_id' => $incident->id,  // Usamos la PK del incidente como FK en la tabla relacionada
+                    'action_id' => $actionId,  // Campo relacionado
+                ];
+
+                // Crear el registro en la tabla relacionada
+                Incident_action::create($incident_action);
+            }
+        }
+
         return response()->json($incident, 201);
     }
 
@@ -49,7 +79,17 @@ class IncidentController extends Controller
      */
     public function update(Request $request, Incidents $incident)
     {
-        //
+
+        $data = $request->all();
+
+        $incident->update([
+            'incident_state_id' => 2,
+        ]);
+
+        $data['incident_id'] = $incident->id;
+
+        Corrective_action::create($data);
+
     }
 
     /**

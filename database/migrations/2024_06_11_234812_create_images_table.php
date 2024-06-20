@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('url');
             $table->timestamps();
             $table->foreignId('type_image_id')->nullable()->constrained('type_images');
-            $table->foreignId('incident_id')->nullable();
+            $table->foreignId('incident_id')->nullable()->constrained('incidents');
         });
     }
 

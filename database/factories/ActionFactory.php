@@ -19,6 +19,7 @@ class ActionFactory extends Factory
         return [
 
             'name' => $this->faker->sentence(),
+            'state' => $this->faker->boolean ? 'si' : 'no',
 
         ];
     }

@@ -20,8 +20,8 @@ return new class extends Migration
         });
         Schema::create('incident_causes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cause_id')->nullable();
-            $table->foreignId('incident_id')->nullable();
+            $table->foreignId('cause_id')->nullable()->constrained('causes');
+            $table->foreignId('incident_id')->nullable()->constrained('incidents');
             $table->timestamps();
         });
     }
