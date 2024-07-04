@@ -12,6 +12,12 @@ class PageController extends Controller
     {
         return view('welcome');
     }
+
+    public function dashboard_report()
+    {//$incidents = Incidents::get();
+        $incidents = Incidents::latest()->paginate(10);
+        return view('pages.dashboard_reporte', ['incidents' => $incidents]);
+    }
     public function dashboard()
     {
         return view('dashboard');

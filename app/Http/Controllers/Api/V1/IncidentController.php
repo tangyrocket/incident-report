@@ -83,7 +83,7 @@ class IncidentController extends Controller
         $data = $request->all();
 
         $incident->update([
-            'incident_state_id' => 2,
+            'incident_state_id' => 3,
         ]);
 
         $data['incident_id'] = $incident->id;

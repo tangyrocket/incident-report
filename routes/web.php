@@ -14,7 +14,10 @@ Route::controller(PageController::class)->group(function () {
 Route::controller(PageController::class)->middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', 'dashboard')->name('dashboard');
     Route::get('reportes', 'reports')->name('reportes');
+
+    Route::get('dashboard_reporte', 'dashboard_report')->name('dashboard_reporte');
     Route::get('reportes/{incident:slug}', 'incident')->name('incident');
+
 });
 
 
@@ -28,6 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+// En tu archivo de rutas web.php
+Route::get('/incidents/filter', [IncidentsController::class, 'filter'])->name('incidents.filter');
 
 
 

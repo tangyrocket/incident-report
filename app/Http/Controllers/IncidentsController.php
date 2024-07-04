@@ -27,14 +27,16 @@ class IncidentsController extends Controller
     }
 
 
+
     public function update(Request $request, Incidents $incident)
     {
         // Validar los datos recibidos
         $incident->update([
-            'incident_state_id' => 2,
+            'incident_state_id' => $request->incident_state_id,
             'lifting_period' => $request->lifting_period,
         ]);
 
         return redirect()->back()->with('status', 'Incident state updated successfully!');
     }
+
 }
