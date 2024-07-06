@@ -1,0 +1,31 @@
+{
+  "hash": "5ebaaf33",
+  "configHash": "747fafc3",
+  "lockfileHash": "ad3c9ac2",
+  "browserHash": "1e1525c6",
+  "optimized": {
+    "alpinejs": {
+      "src": "../../node_modules/alpinejs/dist/module.esm.js",
+      "file": "alpinejs.js",
+      "fileHash": "a5dfeb02",
+      "needsInterop": false
+    },
+    "chart.js/auto": {
+      "src": "../../node_modules/chart.js/auto/auto.js",
+      "file": "chart__js_auto.js",
+      "fileHash": "c1f3fc73",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "9992e36b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-7U33LM2Z": {
+      "file": "chunk-7U33LM2Z.js"
+    }
+  }
+}
