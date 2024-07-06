@@ -3,9 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\IncidentsController;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\CompanyController;
 
 Route::controller(PageController::class)->group(function () {
     Route::get('/', 'welcome');
@@ -18,6 +19,9 @@ Route::controller(PageController::class)->middleware(['auth', 'verified'])->grou
     Route::get('dashboard_reporte', 'dashboard_report')->name('dashboard_reporte');
     Route::get('reportes/{incident:slug}', 'incident')->name('incident');
 
+
+    Route::resource('users', UserController::class);
+    Route::resource('companies', CompanyController::class);
 });
 
 
@@ -26,10 +30,12 @@ Route::get('incident/{incident}', [IncidentsController::class, 'show'])->name('i
 
 
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 

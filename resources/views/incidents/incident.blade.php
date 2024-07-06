@@ -5,7 +5,7 @@
                 <h2 class=" font-semibold text-xl font-bold text-gray-900 dark:text-white leading-tight">
                     Detalle de Incidente
                 </h2>
-         
+
                 <div class="flex space-x-4">
                     @if ($incident->incident_state->id == 4)
                     @include('incidents.partials.button-resolved')
@@ -24,7 +24,7 @@
             <div class=" max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden">
                     <div class="p-6">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Datos del Incidente</h2>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Datos del Incidente</h2>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             @foreach ([
@@ -39,8 +39,8 @@
                             'Evento' => $incident->event->code
                             ] as $label => $value)
                             <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-sm">
-                                <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{{ $label }}</h3>
-                                <p class="text-lg font-semibold text-gray-900 dark:text-white">{{ $value }}</p>
+                                <h3 class="text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">{{ $label }}</h3>
+                                <p class=" text-gray-500 dark:text-white">{{ $value }}</p>
                             </div>
                             @endforeach
                         </div>
@@ -48,15 +48,14 @@
                         <div class="mt-8">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Descripción del Incidente</h3>
                             <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-sm">
-                                <p class="text-gray-800 dark:text-gray-200">{{ $incident->description }}</p>
+                                <p class="text-gray-500 dark:text-gray-200">{{ $incident->description }}</p>
                             </div>
                         </div>
 
                         <div class="mt-8">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Estado del Incidente</h3>
-                            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-sm flex items-center justify-between">
-                                <span class="text-lg font-medium text-gray-700 dark:text-gray-300">Estado actual:</span>
-                                <span class="px-4 py-2 rounded-full text-sm font-medium bg-{{ $incident->incident_state->color }}-100 text-{{ $incident->incident_state->color }}-800">
+                            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-sm flex items-center ">
+                                    <span class="text-gray-500 dark:text-gray-200 bg-{{ $incident->incident_state->color }}-100 text-{{ $incident->incident_state->color }}-800">
                                     {{ $incident->incident_state->name }}
                                 </span>
                             </div>
@@ -70,8 +69,8 @@
                                 'Usuario que Reporta' => $incident->registered->email
                                 ] as $label => $value)
                                 <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-sm">
-                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{{ $label }}</h4>
-                                    <p class="text-lg font-semibold text-gray-900 dark:text-white">{{ $value }}</p>
+                                    <h4 class="text-sm font-medium text-gray-800 dark:text-gray-400 mb-1">{{ $label }}</h4>
+                                    <p class="text-gray-500 dark:text-gray-200">{{ $value }}</p>
                                 </div>
                                 @endforeach
                             </div>

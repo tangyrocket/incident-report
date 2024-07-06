@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
+            $table->softDeletes();
             $table->timestamps();
         });
 
@@ -42,6 +43,8 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -54,6 +57,7 @@ return new class extends Migration
         Schema::dropIfExists('electrical_services');
         Schema::dropIfExists('areas');
         Schema::dropIfExists('events');
+
 
     }
 };

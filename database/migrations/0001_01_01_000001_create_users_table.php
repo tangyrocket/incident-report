@@ -25,9 +25,9 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('person_id')->nullable()->constrained('people');
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreignId('company_id')->nullable()->constrained('companies');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -51,8 +51,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+
         Schema::dropIfExists('users');
+        Schema::dropIfExists('people');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
 

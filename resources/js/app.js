@@ -2,6 +2,9 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 
+import Chart from 'chart.js/auto';
+window.Chart = Chart;
+
 window.Alpine = Alpine;
 
 Alpine.start();
@@ -16,6 +19,8 @@ document.getElementById('closeModalBtn').addEventListener('click', function() {
     document.getElementById('modalLifting').classList.add('hidden');
 
 });
+
+
 
 
 

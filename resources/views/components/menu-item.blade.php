@@ -12,7 +12,7 @@
         <a href="{{ route($route) }}"
            class="flex items-center px-4 py-3 rounded-lg transition-colors duration-150 ease-in-out group
                   {{ $isActive
-                     ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-200'
+                     ? 'bg-gray-300 text-black-700 dark:bg-gray-900 dark:text-gray-200'
                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' }}">
             <span class="font-medium">{{ $name }}</span>
         </a>
@@ -20,7 +20,7 @@
         <button @click="open = !open"
                 class="flex items-center w-full px-4 py-3 rounded-lg transition-colors duration-150 ease-in-out group
                        {{ $isActive
-                          ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-200'
+                          ? 'bg-gray-300 text-black-700 dark:bg-gray-900 dark:text-black-200'
                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' }}">
             <span class="font-medium">{{ $name }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-auto transition-transform duration-200 transform" :class="{'rotate-180': open}" fill="none" viewBox="0 0 24 24" stroke="currentColor">

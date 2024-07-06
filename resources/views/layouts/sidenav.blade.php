@@ -16,7 +16,7 @@
                 <x-menu-item name="Incidentes">
                     <x-slot name="submenu">
                         <x-submenu-item route="reportes" name="Todos los reportes" />
-                     
+
                         <x-submenu-item route="dashboard_reporte" name="Dashboard Reportes" />
                     </x-slot>
                 </x-menu-item>
@@ -28,12 +28,13 @@
                     </x-slot>
                 </x-menu-item>
 
-                <x-menu-item name="Empresas">
-                    <x-slot name="submenu">
-                        <x-submenu-item route="dashboard" name="Todas las empresas" />
-                        <x-submenu-item route="dashboard" name="Nueva Empresa" />
-                    </x-slot>
+                <x-menu-item  route="companies.index" name="Empresas">
+
                 </x-menu-item>
+
+                <x-menu-item route="users.index" name="Usuarios" />
+
+
             </ul>
         </nav>
     </div>

@@ -45,13 +45,15 @@ class DatabaseSeeder extends Seeder
         Cause::factory(40)->create();
         Incident_cause::factory(80)->create();
 
-        Action::factory(4)->create();
-        Incident_action::factory(100)->create();
 
 
         Corrective_action::factory(50)->create();
 
         Type_image::factory(2)->create();
         Image::factory(50)->create();
+
+        Action::factory(4)->create();
+        Incident_action::factory(100)->create();
+
     }
 }
