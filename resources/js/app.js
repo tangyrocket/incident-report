@@ -1,5 +1,10 @@
 import './bootstrap';
 
+
+import.meta.glob([
+    '../images/**',
+  ]);
+  
 import Alpine from 'alpinejs';
 
 import Chart from 'chart.js/auto';
