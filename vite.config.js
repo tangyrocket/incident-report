@@ -15,7 +15,7 @@ export default defineConfig({
     build: {
         assetsDir: 'assets',
         rollupOptions: {
-          input: 'resources/js/app.js',
+          input: ['resources/js/app.js','resources/css/app.css'],
           output: {
             assetFileNames: (assetInfo) => {
               let extType = assetInfo.name.split('.')[1];
