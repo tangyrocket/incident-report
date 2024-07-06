@@ -12,20 +12,4 @@ export default defineConfig({
         }),
     ],
 
-    build: {
-        assetsDir: 'assets',
-        rollupOptions: {
-          input: ['resources/js/app.js','resources/css/app.css'],
-          output: {
-            assetFileNames: (assetInfo) => {
-              let extType = assetInfo.name.split('.')[1];
-              if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-                extType = 'img';
-              }
-              return `assets/${extType}/[name]-[hash][extname]`;
-            },
-          },
-        },
-    },
-
 });
