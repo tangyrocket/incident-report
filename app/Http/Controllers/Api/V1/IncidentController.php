@@ -17,8 +17,7 @@ class IncidentController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return IncidentResource::collection(Incidents::latest()->paginate());
+   {
     }
 
     /**
