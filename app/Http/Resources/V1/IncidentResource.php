@@ -15,8 +15,8 @@ class IncidentResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'tittle' => $this->title,
-            'description' => $this->description
+            'nombre' => $this->title,
+            'descripcion' => $this->description,
 
         ];
     }
