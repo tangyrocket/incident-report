@@ -18,8 +18,13 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        return IncidentResource::collection(Incidents::latest()->paginate());
-        
+        $incidents = Incidents::latest()->paginate();
+
+        // Extrae solo los datos de la colección
+        $data = IncidentResource::collection($incidents)->response()->getData(true)['data'];
+
+        return response()->json($data);
+
     }
 
     /**
