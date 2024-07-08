@@ -10,6 +10,8 @@ use App\Models\Corrective_action;
 use App\Models\Incident_action;
 use App\Models\Incident_cause;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class IncidentController extends Controller
 {
@@ -32,9 +34,16 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
+
+        if (!$user) {
+            return response()->json(['message' => 'Usuario no autenticado'], Response::HTTP_UNAUTHORIZED);
+        }
 
 
         $data = $request->all();
+
+        $data['registered_user'] = $user->id;
 
         // Generar el slug combinando el título y una cadena aleatoria
         $data['slug'] = Str::slug($data['title'] . '-' . Str::random(2));
