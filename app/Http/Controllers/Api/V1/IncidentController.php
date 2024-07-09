@@ -85,7 +85,9 @@ class IncidentController extends Controller
      */
     public function show(Incidents $incident)
     {
-        return response()->json($incident, 200);
+
+
+        return new IncidentResource($incident);
         //return new IncidentResource($incident);
     }
 
