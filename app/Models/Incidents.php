@@ -60,6 +60,6 @@ class Incidents extends Model
 
     }
 
-
+   
 }
 
