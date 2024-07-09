@@ -88,7 +88,7 @@ class IncidentController extends Controller
 
 
        // return response()->json($incident, 200);
-        return response()->json(new IncidentResource($incident), 200). new IncidentResource($incident);
+        return response()->json(new IncidentResource($incident), 200);
         //return new IncidentResource($incident);
     }
 
