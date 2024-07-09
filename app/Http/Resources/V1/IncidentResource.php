@@ -22,10 +22,10 @@ class IncidentResource extends JsonResource
             'descripcion' => $this->description,
             'activity' => $this->activity,
             'location' => $this->location,
-            'plazo_subsanacion' => $this->lifting_period ? Carbon::parse($this->lifting_period)->format('Y-m-d') : null,
+            'plazo_subsanacion' => $this->lifting_period ? Carbon::parse($this->lifting_period)->format('d-m-Y') : null,
            // 'usuario_reportado' => $this->reported_user ? $this->users->email : null,
             //'usuario_reportado' => $this->reported_user ? $this->reported_user->email : null,
-            'usuario_reportado' => $this->reported_user,
+            'usuario_reportado' => $this->reported_user ? $this->user->email : null,
 
             'area_nombre' => $this->area_id ? $this->area->name : null
 
