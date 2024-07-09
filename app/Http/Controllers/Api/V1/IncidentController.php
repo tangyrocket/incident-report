@@ -20,14 +20,7 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id();
-        $companyId = Auth::user()->company_id;
-        $incidents = Incidents::whereHas('user', function ($query) use ($companyId) {
-            $query->where('company_id', $companyId);
-        })
-        ->whereIn('incident_state_id', [2, 5])
-        ->latest()
-        ->paginate();
+        $incidents = Incidents::latest()->paginate();
 
         // Extrae solo los datos de la colección
         $data = IncidentResource::collection($incidents)->response()->getData(true)['data'];
