@@ -18,6 +18,12 @@ class IncidentResource extends JsonResource
             'id'=>$this->id,
             'nombre' => $this->title,
             'descripcion' => $this->description,
+            'activity' => $this->activity,
+            'location' => $this->location,
+            'plazo_subsanacion' => $this->lifting_period,
+            'usuario_reportado' => $this->user ? $this->user->email : null,
+            'area_nombre' => $this->area ? $this->area->name : null
+
 
         ];
     }
