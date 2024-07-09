@@ -44,6 +44,7 @@ class Incidents extends Model
     public function reported(){
         return $this -> belongsTo(User::class, 'reported_user');
     }
+  
 
     public function registered(){
         return $this -> belongsTo(User::class, 'registered_user');
@@ -60,6 +61,6 @@ class Incidents extends Model
 
     }
 
-   
+
 }
 
