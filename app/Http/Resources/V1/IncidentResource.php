@@ -4,6 +4,7 @@ namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Carbon\Carbon;
 
 class IncidentResource extends JsonResource
 {
@@ -21,7 +22,7 @@ class IncidentResource extends JsonResource
             'descripcion' => $this->description,
             'activity' => $this->activity,
             'location' => $this->location,
-            'plazo_subsanacion' => $this->lifting_period,
+            'plazo_subsanacion' => $this->lifting_period ? Carbon::parse($this->lifting_period)->format('Y-m-d') : null,
             'usuario_reportado' => $this->user_id ? $this->user->email : null,
             'area_nombre' => $this->area_id ? $this->area->name : null
 
