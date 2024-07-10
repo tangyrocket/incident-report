@@ -11,3 +11,13 @@ use App\Http\Controllers\Api\V1\IncidentController;
 
 
 Route::post('login', [App\Http\Controllers\Api\LoginController::class,'login']);
+
+Route::get('login', [App\Http\Controllers\Api\LoginController::class,'login']);
+
+
+Route::get('v1/ueData', [App\Http\Controllers\Api\V1\DataController::class, 'ueData']);
+
+Route::get('v1/seData', [App\Http\Controllers\Api\V1\DataController::class, 'seData']);
+
+
+Route::get('v1/areaData', [App\Http\Controllers\Api\V1\DataController::class, 'areaData']);
