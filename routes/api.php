@@ -21,3 +21,9 @@ Route::get('v1/seData', [App\Http\Controllers\Api\V1\DataController::class, 'seD
 
 
 Route::get('v1/areaData', [App\Http\Controllers\Api\V1\DataController::class, 'areaData']);
+
+Route::get('v1/eventoData', [App\Http\Controllers\Api\V1\DataController::class, 'eventoData']);
+
+Route::get('v1/empresaData', [App\Http\Controllers\Api\V1\DataController::class, 'empresaData']);
+
+Route::get('v1/personalData', [App\Http\Controllers\Api\V1\DataController::class, 'personalData']);

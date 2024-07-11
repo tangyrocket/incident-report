@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\V1\IncidentResource;
 use App\Models\Area;
+use App\Models\Company;
 use App\Models\Corrective_action;
+use App\Models\Event;
 use App\Models\Incident_action;
 use App\Models\Incident_cause;
 use Illuminate\Support\Str;
@@ -43,5 +45,21 @@ class DataController extends Controller
 
         return response()->json($data);
 
+    }
+    public function eventoData()
+    {
+        $data = Event::select('id', 'name')->get();
+
+
+        return response()->json($data);
+    }
+
+    public function empresaData(Request $request)
+    {
+        $type = $request->query('type');
+
+        $data = Company::where('type', $type)->get();
+
+        return response()->json($data);
     }
 }
