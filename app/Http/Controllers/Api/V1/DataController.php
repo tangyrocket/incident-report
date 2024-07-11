@@ -13,6 +13,7 @@ use App\Models\Corrective_action;
 use App\Models\Event;
 use App\Models\Incident_action;
 use App\Models\Incident_cause;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,6 +60,15 @@ class DataController extends Controller
         $type = $request->query('type');
 
         $data = Company::where('type', $type)->get();
+
+        return response()->json($data);
+    }
+
+    public function personalData(Request $request)
+    {
+        $type = $request->query('companyId');
+
+        $data = User::where('company_id', $type)->get();
 
         return response()->json($data);
     }
