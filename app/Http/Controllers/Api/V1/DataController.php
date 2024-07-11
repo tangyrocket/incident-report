@@ -26,7 +26,6 @@ class DataController extends Controller
 
 
         return response()->json($data);
-
     }
 
     public function seData()
@@ -36,7 +35,6 @@ class DataController extends Controller
 
 
         return response()->json($data);
-
     }
 
     public function areaData()
@@ -45,7 +43,6 @@ class DataController extends Controller
 
 
         return response()->json($data);
-
     }
     public function eventoData()
     {
@@ -66,9 +63,18 @@ class DataController extends Controller
 
     public function personalData(Request $request)
     {
-        $type = $request->query('companyId');
+        $companyId = $request->query('companyId');
 
-        $data = User::where('company_id', $type)->get();
+        $data = User::where('company_id', $companyId)
+            ->with('person')
+            ->get()
+            ->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'name' => $user->person->name . $user->person->lastname,
+
+                ];
+            });
 
         return response()->json($data);
     }

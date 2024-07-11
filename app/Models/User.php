@@ -29,7 +29,12 @@ class User extends Authenticatable
         return $this->belongsTo(Person::class, 'person_id');
     }
 
- 
+    public function persons()
+{
+    return $this->belongsTo(Person::class);
+}
+
+
     public function company()
     {
         return $this->belongsTo(Companies::class, 'company_id');
